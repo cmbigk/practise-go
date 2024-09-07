@@ -1,3 +1,1 @@
-this is a test.
-need to read in 3 languages first.
-then next step is to write.
+THIS IS A TEST. NEED TO READ IN 3 LANGUAGES FIRST. THEN NEXT STEP IS TO WRITE. ARE YOU ABLE TO DOIT? CAN YOU EXPLAIN BRIEFLY?
