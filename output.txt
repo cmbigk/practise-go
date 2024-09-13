@@ -1,4 +1,0 @@
-IN the context file, all look-and-feel specifications are defined by the lookandfeel element under customsearchengine. this element determines whether ads are displayed, how the search results section are rendered, and how individual search results are displayed. the following example shows all the attributes and child elements of the lookandfeel element.
-this page describes how to customize the appearance of your search engine using the context file, which is the xml specification for your search engine.
-the results element controls the color of individual results IN the search element. each individual result forms a unit of title, result snippet, and link. defining this child element lets you visually delineate individual results or highlight results that are being selected by users.
-this element controls the color for the individual results.
