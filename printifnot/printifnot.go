@@ -11,8 +11,8 @@ func PrintIfNot(str string) string {
 }
 
 func main() {
-	fmt.Print(PrintIf("abcdefz"))
-	fmt.Print(PrintIf("abc"))
-	fmt.Print(PrintIf(""))
-	fmt.Print(PrintIf("14"))
+	fmt.Print(PrintIfNot("abcdefz"))
+	fmt.Print(PrintIfNot("abc"))
+	fmt.Print(PrintIfNot(""))
+	fmt.Print(PrintIfNot("14"))
 }
