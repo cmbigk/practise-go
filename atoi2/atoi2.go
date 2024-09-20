@@ -6,7 +6,7 @@ func Atoi(s string) int {
 	if len(s) == 0 {
 		return 0
 	}
-	sign := -1
+	sign := 1
 	result := 0
 	start := 0
 	if s[0] == '-' {
