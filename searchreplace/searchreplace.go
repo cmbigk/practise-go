@@ -13,12 +13,13 @@ func main() {
 	str := os.Args[1]
 	old := os.Args[2]
 	new := os.Args[3]
+
 	if len(old) != 1 || len(new) != 1 {
 		return
 	}
-	if strings.Contains(str, old) {
+
+	if strings.ContainsAny(str, old) {
 		str = strings.ReplaceAll(str, old, new)
 	}
 	fmt.Println(str)
-
 }
