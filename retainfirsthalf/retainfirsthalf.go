@@ -20,5 +20,4 @@ func main() {
 	fmt.Println(RetainFirstHalf("Kimetsu no Yaiba"))
 	fmt.Println(RetainFirstHalf("123@live.fr"))
 	fmt.Println(RetainFirstHalf("-552"))
-	fmt.Println(RetainFirstHalf("write %d ==> 45m$")) // Output: Hello
 }
