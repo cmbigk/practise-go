@@ -20,5 +20,6 @@ func main() {
 	fmt.Println(Iscapitalized("Whats 4this 100K?"))
 	fmt.Println(Iscapitalized("Whatsthis4"))
 	fmt.Println(Iscapitalized("!!!!Whatsthis4"))
-	fmt.Println(Iscapitalized(""))
+	fmt.Println(Iscapitalized("Whatsthis4"))
+	fmt.Println(Iscapitalized("Hello! €How are you?"))
 }
