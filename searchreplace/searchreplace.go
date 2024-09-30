@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -14,12 +13,20 @@ func main() {
 	old := os.Args[2]
 	new := os.Args[3]
 
+	// Ensure 'old' and 'new' are single characters
 	if len(old) != 1 || len(new) != 1 {
 		return
 	}
 
-	if strings.ContainsAny(str, old) {
-		str = strings.ReplaceAll(str, old, new)
+	// Replace occurrences of 'old' with 'new'
+	result := ""
+	for _, char := range str {
+		if string(char) == old { // Compare current character with 'old'
+			result += new // Append 'new' if it matches
+		} else {
+			result += string(char) // Append original character if it doesn't match
+		}
 	}
-	fmt.Println(str)
+
+	fmt.Println(result)
 }
