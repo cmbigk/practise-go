@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // Gcd function calculates the greatest common divisor of two uint numbers.
 func Gcd(a, b uint) uint {
@@ -13,15 +16,26 @@ func Gcd(a, b uint) uint {
 	return a
 }
 func main() {
+	testCases := []struct {
+		a    uint
+		b    uint
+		want uint
+	}{
+		{42, 10, 2},
+		{42, 12, 6},
+		{14, 77, 7},
+		{17, 3, 1},
+		{12, 23, 1},
+		{25, 15, 5},
+		{23043, 122, 1},
+		{11, 77, 11},
+	}
 
-	fmt.Println(Gcd(42, 10)) // Output: 2
-	fmt.Println(Gcd(42, 12)) // Output: 6
-	fmt.Println(Gcd(14, 77)) // Output: 7
-	fmt.Println(Gcd(17, 3))  // Output: 1
-
-	fmt.Println(Gcd(12, 23))     // Output: 1
-	fmt.Println(Gcd(25, 15))     // Output: 5
-	fmt.Println(Gcd(23043, 122)) // Output: 1
-	fmt.Println(Gcd(11, 77))     // Output: 11
-	fmt.Println(Gcd(75, 25))
+	for _, tc := range testCases {
+		got := Gcd(tc.a, tc.b)
+		if got != tc.want {
+			fmt.Printf("Gcd(%d, %d) = %d instead of %d\n", tc.a, tc.b, got, tc.want)
+			os.Exit(1)
+		}
+	}
 }
