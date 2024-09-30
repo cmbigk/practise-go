@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func PrintIfNot(str string) string {
-	if len(str) == 0 || len(str) <= 3 {
+	if len(str) <= 3 {
 		return "G\n"
 	} else {
 		return "Invalid Input  \n"
@@ -11,8 +11,8 @@ func PrintIfNot(str string) string {
 }
 
 func main() {
-	fmt.Print(PrintIfNot("abcdefz"))
-	fmt.Print(PrintIfNot("abc"))
-	fmt.Print(PrintIfNot(""))
-	fmt.Print(PrintIfNot("14"))
+	table := []string{"ab", "		", "good morning sunshine!", "  28", "he", "", "honey!", "Z", "email123@live.fr", "w45m$", "-552", "474abc", "<="}
+	for _, s := range table {
+		fmt.Print(s + ":" + PrintIfNot(s))
+	}
 }

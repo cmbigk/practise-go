@@ -2,42 +2,32 @@ package main
 
 import "fmt"
 
-func WeAreUnique(str1, str2 string) (int, string) {
-
-	var answer string
-
-	//empty case
-	if len(str1) == 0 && len(str2) == 0 {
-		return -1, ""
-	}
-
-	//searching inside each other
-	for _, each := range str1 {
-		if !IsContain(str2, each) && !IsContain(answer, each) {
-			answer = answer + string(each)
-		}
-	}
-
-	for _, each := range str2 {
-		if !IsContain(str1, each) && !IsContain(answer, each) {
-			answer = answer + string(each)
-		}
-	}
-
-	return len(answer), answer
-}
-
-// Is the rune character containing inside this word?
-func IsContain(word string, char rune) bool {
-
-	for _, each := range word {
-		if each == char {
+func isContain(s string, r rune) bool {
+	for _, v := range s {
+		if v == r {
 			return true
 		}
 	}
 	return false
 }
+func WeAreUnique(str1, str2 string) (int, string) {
+	if str1 == "" && str2 == "" {
+		return -1, ""
+	}
+	result := ""
+	for _, v := range str1 {
+		if !isContain(str2, v) && !isContain(result, v) {
+			result += string(v)
+		}
+	}
 
+	for _, v := range str2 {
+		if !isContain(str1, v) && !isContain(result, v) {
+			result += string(v)
+		}
+	}
+	return len(result), ""
+}
 func main() {
 	table := [][]string{
 		{"abc", "def"},
@@ -55,6 +45,7 @@ func main() {
 		{"AB$%d.52", "eepqdl.52"},
 		{"", "eveRyone"},
 		{"_55w1se", "55w1se"},
+		{"foo", "boo"},
 	}
 	for _, arg := range table {
 		fmt.Println(WeAreUnique(arg[0], arg[1]))
