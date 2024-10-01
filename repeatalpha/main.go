@@ -6,17 +6,17 @@ import (
 
 func RepeatAlpha(s string) string {
 	result := ""
-	for _, r := range s {
-		if r >= 'a' && r <= 'z' {
-			for i := 0; i < int(r-'a'+1); i++ {
-				result += string(r)
+	for _, c := range s {
+		if c >= 'a' && c < +'z' {
+			for i := 0; i < int((c-'a')+1); i++ {
+				result += string(c)
 			}
-		} else if r >= 'A' && r <= 'Z' {
-			for i := 0; i < int(r-'A'+1); i++ {
-				result += string(r)
+		} else if c >= 'A' && c <= 'Z' {
+			for i := 0; i < int((c-'A')+1); i++ {
+				result += string(c)
 			}
 		} else {
-			result += string(r)
+			result += string(c)
 		}
 	}
 	return result
