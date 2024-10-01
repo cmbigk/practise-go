@@ -12,6 +12,9 @@ func main() {
 	fmt.Print("Initial Price: ")
 	fmt.Scan(&initialPrice)
 
+	fmt.Print("Selling Price: ")
+	fmt.Scan(&sellingPrice)
+
 	fmt.Print("Discount Rate: ")
 	fmt.Scan(&discountRate)
 
