@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /*
 Write a function that takes a string as input and returns the first word of the string.
 If the input string is empty or contains only whitespace characters, the function should return an empty string.
@@ -22,10 +24,10 @@ func FirstWord(s string) string {
 	return word
 }
 func main() {
-	FirstWord("Hello World!")
-	FirstWord("")
-	FirstWord("   salut !!! ")
-	FirstWord("Hello World!")
-	FirstWord("  afee dfw!")
+	fmt.Println(FirstWord("Hello World!"))
+	fmt.Println(FirstWord(""))
+	fmt.Println(FirstWord("   salut !!! "))
+	fmt.Println(FirstWord("Hello World!"))
+	fmt.Println(FirstWord("  afee dfw!"))
 
 }
