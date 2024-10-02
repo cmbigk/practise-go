@@ -8,7 +8,7 @@ func ThirdTimeIsACharm(str string) string {
 
 	}
 	var result string
-	for i := 2; i < len(str); i += 3 {
+	for i := 2; i < len(str); i += 3 { //starts at index 2 bcuz we want to start from third character of the string, then just add 3 in that!!
 		result += string(str[i])
 	}
 	return result + "\n"
