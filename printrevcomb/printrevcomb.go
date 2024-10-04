@@ -17,5 +17,5 @@ func PrintRevComb() {
 }
 
 func main() {
-	PrintRevComb()
+	fmt.Println(PrintRevComb)
 }
