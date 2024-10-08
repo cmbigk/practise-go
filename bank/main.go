@@ -1,6 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
+
+func WriteAccBalance(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+}
 
 func main() {
 	var accountBalance float64 = 16648.85
@@ -47,11 +55,10 @@ func main() {
 
 			newaccountBalance := accountBalance - withdrawAmount
 			fmt.Println("Your new balance is: ", newaccountBalance)
-
+			WriteAccBalance(newaccountBalance)
 		default:
 			fmt.Println("Thank you for using BIGK Bank!, We make sure to provide the best service to you!")
 
 		}
 	}
-	fmt.Println("TQ for using our service!")
 }
