@@ -2,18 +2,24 @@ package main
 
 import "fmt"
 
-func isContain(s string, r rune) bool {
+func isContain(s string, c rune) bool {
 	for _, v := range s {
-		if v == r {
+		if v == c {
 			return true
 		}
 	}
 	return false
 }
-func WeAreUnique(str1, str2 string) (int, string) {
+
+func WeAreUnique(str1, str2 string) int {
 	if str1 == "" && str2 == "" {
-		return -1, ""
+		return -1
 	}
+
+	if str1 == str2 {
+		return 0
+	}
+
 	result := ""
 	for _, v := range str1 {
 		if !isContain(str2, v) && !isContain(result, v) {
@@ -26,8 +32,10 @@ func WeAreUnique(str1, str2 string) (int, string) {
 			result += string(v)
 		}
 	}
-	return len(result), ""
+	return len(result)
+
 }
+
 func main() {
 	table := [][]string{
 		{"abc", "def"},
@@ -48,8 +56,6 @@ func main() {
 		{"foo", "boo"},
 	}
 	for _, arg := range table {
-		fmt.Println(WeAreUnique(arg[0], arg[1]))
-		fmt.Println(WeAreUnique(arg[0], arg[1]))
-		fmt.Println(WeAreUnique(arg[0], arg[1]))
+		fmt.Println("Your arg is:", arg, WeAreUnique(arg[0], arg[1]))
 	}
 }
