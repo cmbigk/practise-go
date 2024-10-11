@@ -2,24 +2,44 @@ package main
 
 import "fmt"
 
-func Iscapitalized(s string) bool {
+// IsCapitalized checks if all words in the string are capitalized.
+func IsCapitalized(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
 
 	for i := 0; i < len(s); i++ {
-		if s[i] >= 'a' && s[i] <= 'z' && s[i] != 0 && s[i-1] == ' ' {
+		if i > 0 && s[i-1] == ' ' && s[i] >= 'a' && s[i] <= 'z' {
 			return false
 		}
 	}
-	return !(s[0] >= 'a' && s[0] <= 'z')
+
+	if s[0] >= 'a' && s[0] <= 'z' {
+		return false
+	}
+	return true
 }
+
 func main() {
-	fmt.Println(Iscapitalized("Hello! How are you?"))
-	fmt.Println(Iscapitalized("Hello How Are You"))
-	fmt.Println(Iscapitalized("Whats 4this 100K?"))
-	fmt.Println(Iscapitalized("Whatsthis4"))
-	fmt.Println(Iscapitalized("!!!!Whatsthis4"))
-	fmt.Println(Iscapitalized("Whatsthis4"))
-	fmt.Println(Iscapitalized("Hello! €How are you?"))
+	// Define some test cases
+	testCases := []struct {
+		input    string
+		expected bool
+	}{
+		{"Hello! €How are you?", false},
+		{"A Simple Sentence", true},
+		{"a lowercase start", false},
+		{"", false},
+		{"HELLO WORLD", true},
+		{"H3110 W0r1d!", true},
+		{"Hello How Are You", true},
+		{"What's This?", true},
+		{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", false},
+	}
+
+	// Iterate over each test case and check the output of IsCapitalized
+	for _, testCase := range testCases {
+		result := IsCapitalized(testCase.input)
+		fmt.Printf("Input: '%s' | Expected: %v | Result: %v\n", testCase.input, testCase.expected, result)
+	}
 }
