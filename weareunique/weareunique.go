@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func isContain(s string, c rune) bool {
-	for _, v := range s {
-		if v == c {
+func isContain(g string, d rune) bool {
+	for _, b := range g {
+		if b == d {
 			return true
 		}
 	}
@@ -25,15 +25,14 @@ func WeAreUnique(str1, str2 string) int {
 		if !isContain(str2, v) && !isContain(result, v) {
 			result += string(v)
 		}
-	}
 
-	for _, v := range str2 {
-		if !isContain(str1, v) && !isContain(result, v) {
-			result += string(v)
+		for _, r := range str2 {
+			if !isContain(str1, r) && !isContain(result, r) {
+				result += string(r)
+			}
 		}
 	}
 	return len(result)
-
 }
 
 func main() {
