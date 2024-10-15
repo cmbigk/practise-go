@@ -8,21 +8,21 @@ func main() {
 	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
 }
 
-func hexDegit2Rune(digit byte) rune {
-	if digit < 10 {
-		return rune(digit + '0')
+func hexa2rune(n byte) rune {
+	if n < 10 {
+		return rune(n + '0')
 	} else {
-		return rune(digit - 10 + 'a')
+		return rune(n - 10 + 'a')
 	}
 }
 
 func PrintMemory(arr [10]byte) {
 	for i, c := range arr {
-		digit1 := c / 16
-		digit2 := c % 16
+		firstdigit := c / 16
+		seconddigit := c % 16
 
-		z01.PrintRune(hexDegit2Rune(digit1))
-		z01.PrintRune(hexDegit2Rune(digit2))
+		z01.PrintRune(hexa2rune(firstdigit))
+		z01.PrintRune(hexa2rune(seconddigit))
 
 		z01.PrintRune(' ')
 
@@ -37,6 +37,6 @@ func PrintMemory(arr [10]byte) {
 		} else {
 			z01.PrintRune('.')
 		}
-
 	}
+
 }
