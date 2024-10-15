@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
+	PrintMemory([10]byte{'A', 10, 20, 'b', 31, 64, 91, 0, 255, 12})
 }
 
 func hexa2rune(n byte) rune {
