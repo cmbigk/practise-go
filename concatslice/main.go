@@ -4,10 +4,15 @@ import "fmt"
 
 func ConcatSlice(slice1, slice2 []int) []int {
 	var result []int
-	// Concatenate the two slices
-	result = append(result, slice1...)
-	result = append(result, slice2...)
-	// Return the concatenated slice
+	for _, v := range slice1 {
+		result = append(result, v)
+	}
+
+	for _, v := range slice2 {
+		result = append(result, v)
+	}
+
+	//
 	return result
 
 }
@@ -20,6 +25,7 @@ func main() {
 		{{}, {}},
 		{{1, 2, 3}, {4, 5, 6, 3, 4, 5, 6}},
 		{{0, 0, 0}, {0, 0, 0}},
+		{{1, 2, 3}, {4, 5, 6}},
 	}
 
 	for _, arg := range args {
