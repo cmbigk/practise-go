@@ -20,25 +20,24 @@ func main() {
 	secondStr := os.Args[2]
 
 	if len(os.Args) != 3 {
-		z01.PrintRune('\n')
+		z01.PrintRune(' ')
 		return
 	}
 
-	var answer string
-	for _, v := range firstStr {
-		if !IsDatHere(answer, v) {
-			answer += string(v)
+	i := 0
+	for _, char := range secondStr {
+		if char == rune(firstStr[i]) {
+			i++
+		}
+
+		if i == len(firstStr) {
+			break
 		}
 	}
-
-	for _, v := range secondStr {
-		if !IsDatHere(answer, v) {
-			answer += string(v)
+	if i == len(firstStr) {
+		for _, r := range firstStr {
+			z01.PrintRune(r)
 		}
-	}
-
-	for _, r := range answer {
-		z01.PrintRune(r)
 	}
 	z01.PrintRune('\n')
 }
