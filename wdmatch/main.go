@@ -6,15 +6,6 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func IsDatHere(c string, d rune) bool {
-	for _, v := range c {
-		if v == d {
-			return true
-		}
-	}
-	return false
-}
-
 func main() {
 	firstStr := os.Args[1]
 	secondStr := os.Args[2]
