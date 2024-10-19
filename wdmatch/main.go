@@ -16,8 +16,8 @@ func main() {
 	}
 
 	i := 0
-	for _, char := range secondStr {
-		if char == rune(firstStr[i]) {
+	for _, p := range secondStr {
+		if p == rune(firstStr[i]) {
 			i++
 		}
 
@@ -26,9 +26,9 @@ func main() {
 		}
 	}
 	if i == len(firstStr) {
-		for _, r := range firstStr {
-			z01.PrintRune(r)
+		for _, v := range firstStr {
+			z01.PrintRune(v)
 		}
+		z01.PrintRune('\n')
 	}
-	z01.PrintRune('\n')
 }
