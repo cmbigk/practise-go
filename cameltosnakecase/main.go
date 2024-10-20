@@ -9,15 +9,14 @@ func isUpper(s rune) bool {
 func isLower(s rune) bool {
 	return s >= 'a' && s <= 'z'
 }
-
 func CamelToSnakeCase(s string) string {
 	result := ""
 	for i := 0; i < len(s); i++ {
-		if i != 0 && isUpper(rune(s[i])) && i+1 < len(s) && isLower(rune(s[i+1])) {
+		if isLower(rune(s[i])) || (i == 0 && isUpper(rune(s[i]))) {
+			result += string(s[i])
+		} else if i != 0 && isUpper(rune(s[i])) && i+1 < len(s) && isLower(rune(s[i+1])) {
 			result += "_"
-			result += string(rune(s[i]))
-		} else if isLower(rune(s[i])) || (i == 0 && isUpper(rune(s[i]))) {
-			result += string(rune(s[i]))
+			result += string(s[i])
 		} else {
 			return s
 		}
@@ -29,7 +28,7 @@ func CamelToSnakeCase(s string) string {
 func main() {
 	args := []string{
 		"CamelCase",
-		"camelCase",
+		"CAMELCase",
 		"HelloWorld",
 		"132",
 		" ",
@@ -40,8 +39,8 @@ func main() {
 		"AbCEf",
 		"abcAree",
 		"ahe1Abde",
-		"tesTing1",
-		"SOME_VARIABLE",
+		"TesTing",
+		"SOMEVARIABLE",
 		"ASuperLonGVariableName",
 		"thisIsaTestOfCamelCase",
 		"aA",
