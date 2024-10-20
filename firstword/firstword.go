@@ -8,21 +8,23 @@ If the input string is empty or contains only whitespace characters, the functio
 */
 
 func FirstWord(s string) string {
-	var word string
-	startc := false
-	for _, c := range s {
-		if c != ' ' && !startc {
-			startc = true
+	result := ""
+	wordStarted := false
+	for _, char := range s {
+		if char != ' ' && !wordStarted {
+			wordStarted = true
 		}
-		if startc {
-			if c == ' ' {
+		if wordStarted {
+			if char == ' ' {
 				break
+
 			}
-			word += string(c)
+			result += string(char)
 		}
 	}
-	return word
+	return result
 }
+
 func main() {
 	fmt.Println(FirstWord("Hello World!"))
 	fmt.Println(FirstWord(""))
