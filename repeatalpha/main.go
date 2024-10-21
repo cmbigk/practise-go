@@ -1,23 +1,24 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func RepeatAlpha(s string) string {
 	result := ""
 	for _, c := range s {
-		if c >= 'a' && c < +'z' {
-			for i := 0; i < int((c-'a')+1); i++ {
+		if c >= 'a' && c <= 'z' {
+			repeatchar := int(c-'a') + 1
+			for i := 0; i < repeatchar; i++ {
 				result += string(c)
 			}
 		} else if c >= 'A' && c <= 'Z' {
-			for i := 0; i < int((c-'A')+1); i++ {
+			repeatchar := int(c-'A') + 1
+			for i := 0; i < repeatchar; i++ {
 				result += string(c)
 			}
 		} else {
 			result += string(c)
 		}
+
 	}
 	return result
 }

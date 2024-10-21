@@ -17,7 +17,7 @@ func HashCode(dec string) string {
 }
 
 func main() {
-	table := []string{"Z", "Hello World", "Hi!", "BB198365", "sabito", "14 Avril 1912", "zyx987bca", "		pool-2020", "965truma747", " Mercedes-AMG GT"}
+	table := []string{"Z", "Hello World", "Hi!", "BB198365", "sabito", "14 Avril 1912", "zyx987bca", "		pool-2020", "965truma747", " Mercedes-AMG GT", "BAC", "AB", "A"}
 	for _, s := range table {
 		fmt.Println(s + ":" + HashCode(s))
 	}
