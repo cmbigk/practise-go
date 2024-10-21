@@ -2,22 +2,25 @@ package main
 
 import "fmt"
 
-// IsCapitalized checks if all words in the string are capitalized.
+func isLower(s byte) bool {
+	return s >= 'a' && s <= 'z'
+}
+
 func IsCapitalized(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
 
 	for i := 0; i < len(s); i++ {
-		if i > 0 && s[i-1] == ' ' && s[i] >= 'a' && s[i] <= 'z' {
+		if i > 0 && s[i-1] == ' ' && isLower(s[i]) {
+			return false
+		}
+		if isLower(s[0]) {
 			return false
 		}
 	}
-
-	if s[0] >= 'a' && s[0] <= 'z' {
-		return false
-	}
 	return true
+
 }
 
 func main() {
