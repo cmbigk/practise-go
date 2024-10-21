@@ -5,14 +5,15 @@ import (
 )
 
 func main() {
-	PrintMemory([10]byte{'A', 10, 20, 'b', 31, 64, 91, 0, 255, 12})
+
+	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
 }
 
-func hexa2rune(n byte) rune {
-	if n < 10 {
-		return rune(n + '0')
+func hex2Rune(s byte) rune {
+	if s < 10 {
+		return rune(s + '0')
 	} else {
-		return rune(n - 10 + 'a')
+		return rune(s - 10 + 'a')
 	}
 }
 
@@ -21,8 +22,8 @@ func PrintMemory(arr [10]byte) {
 		firstdigit := c / 16
 		seconddigit := c % 16
 
-		z01.PrintRune(hexa2rune(firstdigit))
-		z01.PrintRune(hexa2rune(seconddigit))
+		z01.PrintRune(hex2Rune(firstdigit))
+		z01.PrintRune(hex2Rune(seconddigit))
 
 		z01.PrintRune(' ')
 
@@ -30,12 +31,12 @@ func PrintMemory(arr [10]byte) {
 			z01.PrintRune('\n')
 		}
 	}
-
-	for _, char := range arr {
-		if char >= 32 && char <= 126 {
-			z01.PrintRune(rune(char))
+	z01.PrintRune('\n')
+	for _, c := range arr {
+		if c >= 32 && c <= 126 {
+			z01.PrintRune(rune(c))
 		} else {
-			z01.PrintRune('.')
+			z01.PrintRune(rune('.'))
 		}
 	}
 
