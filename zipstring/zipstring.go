@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func ZipString(s string) string {
 	result := ""
@@ -12,7 +15,7 @@ func ZipString(s string) string {
 			count++
 			i++
 		}
-		result += fmt.Sprintf("%d%c", count, s[i])
+		result += strconv.Itoa(count) + string(s[i])
 		i++
 	}
 	return result
