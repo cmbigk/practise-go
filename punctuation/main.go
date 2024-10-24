@@ -5,12 +5,30 @@ import (
 	"strings"
 )
 
-func PunPun(pun []string) []string {
+func removeTheSlice(remove []string) []string {
+
+	var result []string
+
+	for _, char := range remove {
+		if char != "" {
+			result = append(result, char)
+		}
+
+	}
+	return result
+}
+
+func removePunctuation(pun []string) []string {
+
+	// Ensure pun is not empty before checking pun[0]
+	if len(pun) == 0 {
+		return pun
+	}
 
 	// Handle punctuation at the start of the first word (index 0)
 	for len(pun[0]) > 0 && strings.Contains(".,!?;:", string(pun[0][0])) {
 		// If the first character of the first word is punctuation, remove it
-		pun[0] = pun[i][1:]
+		pun[0] = pun[0][1:]
 	}
 
 	// Process all other words starting from index 1
@@ -31,7 +49,7 @@ func main() {
 	input := []string{"Hello", ",", "world", "!", "How", "are", "you", "?"}
 	fmt.Println("Original:", input)
 
-	output := PunPun(input)
+	output := removePunctuation(input)
 	fmt.Println("Processed:", output)
 
 	testCases := [][]string{
@@ -43,7 +61,7 @@ func main() {
 
 	for _, testCase := range testCases {
 		fmt.Println("Testing:", testCase)
-		result := PunPun(testCase)
+		result := removePunctuation(testCase)
 		fmt.Println("Result:", result)
 	}
 }
