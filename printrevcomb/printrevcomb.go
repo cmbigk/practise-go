@@ -2,21 +2,19 @@ package main
 
 import "fmt"
 
-func PrintRevComb() {
+func main() {
 	result := ""
-	for c1 := '9'; c1 >= '0'; c1-- {
-		for c2 := c1 - 1; c2 >= '0'; c2-- {
-			for c3 := c2 - 1; c3 >= '0'; c3-- {
+	for i := '9'; i >= '0'; i-- {
+		for j := i - 1; j >= '0'; j-- {
+			for k := j - 1; k >= '0'; k-- {
 				if result != "" {
 					result += ", "
 				}
-				result += fmt.Sprintf("%c%c%c", c1, c2, c3)
+				result += fmt.Sprintf("%c%c%c", i, j, k)
 			}
-		}
-	}
-	fmt.Println(result)
-}
 
-func main() {
-	PrintRevComb()
+		}
+
+	}
+	fmt.Print(result)
 }
