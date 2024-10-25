@@ -58,3 +58,27 @@ func main() {
 		fmt.Println("Your arg is:", arg, WeAreUnique(arg[0], arg[1]))
 	}
 }
+
+/*
+func WeAreUnique(str1, str2 string) int {
+	if len(str1) == 0 && len(str2) == 0 {
+		return -1
+	}
+	if str1 == str2 {
+		return 0
+	}
+	unique := 0
+	for _, o := range str1 {
+		if !isContain(str2, o) {
+			unique++
+		}
+
+	}
+	for _, o := range str2 {
+		if !isContain(str1, o) {
+			unique++
+		}
+	}
+	return unique
+}
+*/
