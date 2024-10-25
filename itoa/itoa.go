@@ -23,9 +23,10 @@ func Itoa(n int) string {
 	}
 
 	for n > 0 {
+
 		addingLastDigit := n % 10
 		result = string(addingLastDigit+'0') + result
-		n = n / 10
+		n /= 10
 	}
 
 	if isNegative {
