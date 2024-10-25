@@ -1,32 +1,60 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-func isPrime(nb int) bool {
-	if nb < 2 {
-		return false // Add a return statement for the case when nb < 2
+func FromTo(from int, to int) string {
+	if from > 99 || from < 0 || to > 99 || to < 0 {
+		return "Invalid" + "\n"
 	}
-	for i := 2; i*i <= nb; i++ {
-		if nb%i == 0 {
-			return false
+
+	result := ""
+	if from == to {
+		if from < 10 {
+			result += "0" + strconv.Itoa(from)
+		} else {
+			result += strconv.Itoa(from)
 		}
 	}
-	return true
-}
 
-func FindPrevPrime(nb int) int {
-	for nb >= 2 {
-		if isPrime(nb) {
-			return nb
+	if from < to {
+		for i := from; i < to; i++ {
+			if i < 10 {
+				result += "0" + strconv.Itoa(i)
+			} else {
+
+				result += strconv.Itoa(i)
+			}
+			if i != to {
+				result += "," + " "
+			}
 		}
-		nb--
-	}
-	return 0
-}
 
+	}
+
+	if from > to {
+		for i := from; i > to; i-- {
+			if i < 10 {
+				result += "0" + strconv.Itoa(i)
+			} else {
+
+				result += strconv.Itoa(i)
+			}
+			if i != to {
+				result += "," + " "
+			}
+
+		}
+
+	}
+
+	return result + "\n"
+}
 func main() {
-	args := append([]int{99999}, 5, 4, 1, 0, 9, 18, 62, 16, 83, 4)
-	for _, arg := range args {
-		fmt.Println(FindPrevPrime(arg))
-	}
+	fmt.Print(FromTo(1, 10))
+	fmt.Print(FromTo(10, 1))
+	fmt.Print(FromTo(10, 10))
+	fmt.Print(FromTo(100, 10))
 }
