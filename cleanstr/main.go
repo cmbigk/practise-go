@@ -8,20 +8,24 @@ import (
 
 func main() {
 	if len(os.Args) != 2 {
+		z01.PrintRune('\n')
 		return
 	}
 
 	str := os.Args[1]
-	wordsInBetween := false
-	for i, c := range str {
-		if c == ' ' || c == '\t' {
-			if wordsInBetween && i != 0 && str[i-1] != ' ' && str[i-1] != '\t' {
+	wordInBetween := false
+
+	for i, char := range str {
+		if char == ' ' || char == '\t' {
+			if wordInBetween && i != 0 && str[i-1] != ' ' && str[i-1] != '\t' {
 				z01.PrintRune(' ')
+
 			}
 		} else {
-			z01.PrintRune(c)
-			wordsInBetween = true
+			z01.PrintRune(char)
+			wordInBetween = true
 		}
+
 	}
 	z01.PrintRune('\n')
 }
