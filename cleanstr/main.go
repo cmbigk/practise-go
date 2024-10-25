@@ -13,16 +13,18 @@ func main() {
 	}
 
 	str := os.Args[1]
-	inWord := false
-	for i, r := range str {
-		if r == ' ' || r == '\t' {
-			if inWord && i != 0 && (str[i-1] != ' ' && str[i-1] != '\t') {
+	wordInBetween := false
+
+	for i, char := range str {
+		if char == ' ' || char == '\t' {
+			if wordInBetween && i != 0 && str[i-1] != ' ' && str[i-1] != '\t' {
 				z01.PrintRune(' ')
 			}
 		} else {
-			z01.PrintRune(r)
-			inWord = true
+			z01.PrintRune(char)
+			wordInBetween = true
 		}
+
 	}
 	z01.PrintRune('\n')
 }
