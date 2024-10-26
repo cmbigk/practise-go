@@ -20,6 +20,9 @@ func isInStr(str1, str2 string) bool {
 }
 
 func main() {
+	if len(os.Args) != 3 {
+		return
+	}
 	str1 := os.Args[1]
 	str2 := os.Args[2]
 
