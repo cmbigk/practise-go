@@ -10,7 +10,6 @@ func main() {
 	if len(os.Args) != 3 {
 		return
 	}
-
 	str1 := os.Args[1]
 	str2 := os.Args[2]
 
@@ -27,5 +26,4 @@ func main() {
 	} else {
 		z01.PrintRune('0')
 	}
-
 }
