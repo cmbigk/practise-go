@@ -6,9 +6,9 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func IsDatHere(c string, d rune) bool {
-	for _, v := range c {
-		if v == d {
+func isContain(s string, c rune) bool {
+	for _, char := range s {
+		if char == c {
 			return true
 		}
 	}
@@ -16,8 +16,8 @@ func IsDatHere(c string, d rune) bool {
 }
 
 func main() {
-	firstStr := os.Args[1]
-	secondStr := os.Args[2]
+	str1 := os.Args[1]
+	str2 := os.Args[2]
 
 	if len(os.Args) != 3 {
 		z01.PrintRune('\n')
@@ -25,15 +25,15 @@ func main() {
 	}
 
 	var answer string
-	for _, v := range firstStr {
-		if !IsDatHere(answer, v) {
-			answer += string(v)
+	for _, char := range str1 {
+		if !isContain(answer, char) {
+			answer += string(char)
 		}
 	}
 
-	for _, v := range secondStr {
-		if !IsDatHere(answer, v) {
-			answer += string(v)
+	for _, char := range str2 {
+		if !isContain(answer, char) {
+			answer += string(char)
 		}
 	}
 
