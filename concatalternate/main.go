@@ -1,14 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println(ConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6}))
+	fmt.Println(ConcatAlternate([]int{2, 4, 6, 8, 10}, []int{1, 3, 5, 7, 9, 11}))
+	fmt.Println(ConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6, 7, 8, 9}))
+	fmt.Println(ConcatAlternate([]int{1, 2, 3}, []int{}))
+}
 
 func ConcatAlternate(slice1, slice2 []int) []int {
-	var result []int
-
 	if len(slice1) < len(slice2) {
 		slice1, slice2 = slice2, slice1
 	}
 
+	var result []int
 	for i, v := range slice1 {
 		result = append(result, v)
 
@@ -17,18 +25,4 @@ func ConcatAlternate(slice1, slice2 []int) []int {
 		}
 	}
 	return result
-}
-func main() {
-	args := [][][]int{
-		{{1, 2, 3}, {4, 5, 6}},
-		{{1, 2, 3}, {4, 5}},
-		{{}, {4, 5, 6}},
-		{{1, 2, 3}, {}},
-		{{}, {}},
-		{{1, 2, 4}, {10, 20, 30, 40, 50}},
-		{{2, 4, 6, 8, 10}, {1, 3, 5, 7, 9, 11}},
-	}
-	for _, arg := range args {
-		fmt.Println("ConcatAlternate", ConcatAlternate(arg[0], arg[1]))
-	}
 }
