@@ -24,8 +24,8 @@ func SaveAndMiss(arg string, num int) string {
 		if end > len(arg) {
 			end = len(arg)
 		}
-		result += arg[i:end]
 
+		result += arg[i:end]
 	}
 	return result
 }
