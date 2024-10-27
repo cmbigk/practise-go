@@ -16,29 +16,30 @@ func isContain(s string, c rune) bool {
 }
 
 func main() {
-	str1 := os.Args[1]
-	str2 := os.Args[2]
-
 	if len(os.Args) != 3 {
 		z01.PrintRune('\n')
 		return
 	}
 
-	var answer string
+	result := ""
+	str1 := os.Args[1]
+	str2 := os.Args[2]
+
 	for _, char := range str1 {
-		if !isContain(answer, char) {
-			answer += string(char)
+		if !isContain(result, char) {
+			result += string(char)
 		}
 	}
 
 	for _, char := range str2 {
-		if !isContain(answer, char) {
-			answer += string(char)
+		if !isContain(result, char) {
+			result += string(char)
 		}
 	}
 
-	for _, r := range answer {
-		z01.PrintRune(r)
+	for _, char := range result {
+		z01.PrintRune(char)
 	}
+
 	z01.PrintRune('\n')
 }
