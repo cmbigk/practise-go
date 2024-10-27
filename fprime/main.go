@@ -23,8 +23,8 @@ func printPrimeFactor(n int) {
 		} else {
 			factor++
 		}
-		fmt.Print()
 	}
+
 }
 
 func main() {
@@ -33,5 +33,7 @@ func main() {
 		if err == nil {
 			printPrimeFactor(input)
 		}
+
 	}
+	fmt.Print()
 }
