@@ -16,15 +16,15 @@ func Chunk(slice []int, size int) {
 		return
 	}
 
-	chunks := [][]int{}
+	var result [][]int
 	for i := 0; i < len(slice); i += size {
 		end := i + size
 
 		if end > len(slice) {
 			end = len(slice)
 		}
-		chunks = append(chunks, slice[i:end])
-	}
-	fmt.Println(chunks)
 
+		result = append(result, slice[i:end])
+	}
+	fmt.Println(result)
 }
