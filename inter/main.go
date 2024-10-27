@@ -6,33 +6,31 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func IsDatHere(c string, d rune) bool {
-	for _, v := range c {
-		if v == d {
+func isContain(s string, r rune) bool {
+	for _, char := range s {
+		if char == r {
 			return true
 		}
+
 	}
 	return false
 }
-
 func main() {
-	firstStr := os.Args[1]
-	secondStr := os.Args[2]
-
 	if len(os.Args) != 3 {
-		z01.PrintRune('\n')
 		return
 	}
 
-	var answer string
-	for _, v := range firstStr {
-		if IsDatHere(secondStr, v) && !IsDatHere(answer, v) {
-			answer += string(v)
+	str1 := os.Args[1]
+	str2 := os.Args[2]
+
+	result := ""
+	for _, char := range str1 {
+		if isContain(str2, char) && !isContain(result, char) {
+			result += string(char)
 		}
 	}
-
-	for _, r := range answer {
-		z01.PrintRune(r)
+	for _, char := range result {
+		z01.PrintRune(char)
 	}
 	z01.PrintRune('\n')
 }
