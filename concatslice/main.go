@@ -13,12 +13,12 @@ func main() {
 func ConcatSlice(slice1, slice2 []int) []int {
 	var result []int
 
-	for i := 0; i < len(slice1); i++ {
-		result = append(result, slice1[i])
+	for _, char := range slice1 {
+		result = append(result, char)
 	}
 
-	for j := 0; j < len(slice2); j++ {
-		result = append(result, slice2[j])
+	for _, char := range slice2 {
+		result = append(result, char)
 	}
 
 	return result
