@@ -1,20 +1,20 @@
 package main
 
 import (
-	"os"
-
 	"github.com/01-edu/z01"
+
+	"os"
 )
 
-func isContain(s string, r rune) bool {
+func isContain(s string, c rune) bool {
 	for _, char := range s {
-		if char == r {
+		if char == c {
 			return true
 		}
-
 	}
 	return false
 }
+
 func main() {
 	if len(os.Args) != 3 {
 		return
@@ -22,7 +22,6 @@ func main() {
 
 	str1 := os.Args[1]
 	str2 := os.Args[2]
-
 	result := ""
 	for _, char := range str1 {
 		if isContain(str2, char) && !isContain(result, char) {
