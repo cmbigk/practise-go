@@ -10,18 +10,19 @@ func main() {
 	if len(os.Args) != 3 {
 		return
 	}
-	str1 := os.Args[1]
-	str2 := os.Args[2]
+
+	s1 := os.Args[1]
+	s2 := os.Args[2]
 
 	i, j := 0, 0
-	for i < len(str1) && j < len(str2) {
-		if str1[i] == str2[j] {
+	for i < len(s1) && j < len(s2) {
+		if s1[i] == s2[j] {
 			i++
 		}
 		j++
 	}
 
-	if i == len(str1) {
+	if i == len(s1) {
 		z01.PrintRune('1')
 	} else {
 		z01.PrintRune('0')
