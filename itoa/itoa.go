@@ -16,19 +16,17 @@ func Itoa(n int) string {
 		return "0"
 	}
 
-	result := ""
 	isNegative := n < 0
 	if isNegative {
 		n = -n
 	}
 
+	result := ""
 	for n > 0 {
-
 		addingLastDigit := n % 10
 		result = string(addingLastDigit+'0') + result
-		n /= 10
+		n = n / 10
 	}
-
 	if isNegative {
 		result = string('-') + result
 	}
