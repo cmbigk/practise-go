@@ -12,8 +12,8 @@ func main() {
 }
 
 func ZipString(s string) string {
-	result := ""
 	i := 0
+	result := ""
 
 	for i < len(s) {
 		count := 1
