@@ -17,7 +17,7 @@ func SaveAndMiss(arg string, num int) string {
 	if num <= 0 {
 		return arg
 	}
-	result := ""
+	var result string
 	for i := 0; i < len(arg); i += 2 * num {
 		end := i + num
 
