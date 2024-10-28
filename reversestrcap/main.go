@@ -14,8 +14,9 @@ func isUpper(c rune) bool {
 	return c >= 'A' && c <= 'Z'
 }
 
-func ReverStrCap(s string) string {
+func reverseStrCap(s string) string {
 	result := []rune(s)
+
 	for i := 0; i < len(result); i++ {
 		if i == len(result)-1 || result[i+1] == ' ' {
 			if isLower(result[i]) {
@@ -24,19 +25,22 @@ func ReverStrCap(s string) string {
 		} else if isUpper(result[i]) {
 			result[i] += 32
 		}
+
 	}
 	return string(result)
 }
+
 func main() {
 	if len(os.Args) > 1 {
 		for _, char := range os.Args[1:] {
-			result := ReverStrCap(char)
+			result := reverseStrCap(char)
 
-			for _, w := range result {
-				z01.PrintRune(w)
+			for _, char := range result {
+				z01.PrintRune(char)
 			}
 			z01.PrintRune('\n')
 		}
+
 	}
 
 }
