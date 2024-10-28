@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func Primefactor(n int) {
+func primeFactor(n int) {
 	if n <= 1 {
 		return
 	}
@@ -30,9 +30,8 @@ func Primefactor(n int) {
 func main() {
 	if len(os.Args) == 2 {
 		input, err := strconv.Atoi(os.Args[1])
-
 		if err == nil {
-			Primefactor(input)
+			primeFactor(input)
 		}
 	}
 	fmt.Print()
