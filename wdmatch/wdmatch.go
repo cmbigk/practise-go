@@ -14,23 +14,21 @@ func isInStr(str1, str2 string) bool {
 			i++
 		}
 		j++
-
 	}
 	return i == len(str1)
 }
 
 func main() {
+	str1 := os.Args[1]
+	str2 := os.Args[2]
 	if len(os.Args) != 3 {
 		return
 	}
-	str1 := os.Args[1]
-	str2 := os.Args[2]
 
 	if isInStr(str1, str2) {
 		for _, char := range str1 {
 			z01.PrintRune(char)
 		}
-
 	}
-	z01.PrintRune('\n')
+
 }
