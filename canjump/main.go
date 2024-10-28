@@ -1,6 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func main() {
+	input1 := []uint{2, 3, 1, 1, 4}
+	fmt.Println(CanJump(input1))
+
+	input2 := []uint{3, 2, 1, 0, 4}
+	fmt.Println(CanJump(input2))
+
+	input3 := []uint{0}
+	fmt.Println(CanJump(input3))
+}
 
 func CanJump(steps []uint) bool {
 	if len(steps) == 0 {
@@ -14,23 +27,9 @@ func CanJump(steps []uint) bool {
 		}
 
 		maxjump = max(maxjump, i+int(steps[i]))
-		if maxjump == len(steps)-1 || len(steps) == 1 {
+		if maxjump == len(steps)-1 || maxjump == len(steps) {
 			return true
 		}
 	}
 	return false
-}
-
-func main() {
-	input1 := []uint{2, 3, 1, 1, 4}
-	fmt.Println(CanJump(input1))
-
-	input2 := []uint{3, 2, 1, 0, 4}
-	fmt.Println(CanJump(input2))
-
-	input3 := []uint{0}
-	fmt.Println(CanJump(input3))
-
-	input4 := []uint{0, 1, 2, 3, 4, 1, 1, 0}
-	fmt.Println(CanJump(input4))
 }

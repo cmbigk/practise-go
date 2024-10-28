@@ -11,12 +11,12 @@ func main() {
 }
 
 func Chunk(slice []int, size int) {
+	var result [][]int
 	if size == 0 {
 		fmt.Println()
 		return
 	}
 
-	var result [][]int
 	for i := 0; i < len(slice); i += size {
 		end := i + size
 
