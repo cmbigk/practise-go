@@ -1,20 +1,24 @@
 package main
 
-import "fmt"
+import "github.com/01-edu/z01"
 
 func main() {
-	result := ""
+	first := true
 	for i := '9'; i >= '0'; i-- {
 		for j := i - 1; j >= '0'; j-- {
 			for k := j - 1; k >= '0'; k-- {
-				if result != "" {
-					result += ", "
+				if !first {
+					z01.PrintRune(',')
+					z01.PrintRune(' ')
+				} else {
+					first = false
 				}
-				result += fmt.Sprintf("%c%c%c", i, j, k)
+				z01.PrintRune(i)
+				z01.PrintRune(j)
+				z01.PrintRune(k)
+
 			}
-
 		}
-
 	}
-	fmt.Print(result)
+	z01.PrintRune('\n')
 }

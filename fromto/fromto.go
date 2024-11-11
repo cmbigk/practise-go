@@ -28,7 +28,7 @@ func FromTo(from int, to int) string {
 				result += strconv.Itoa(i)
 			}
 			if i != to {
-				result += "," + " "
+				result += ", "
 			}
 		}
 
@@ -43,7 +43,7 @@ func FromTo(from int, to int) string {
 				result += strconv.Itoa(i)
 			}
 			if i != to {
-				result += "," + " "
+				result += ", "
 			}
 
 		}
