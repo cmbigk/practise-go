@@ -15,16 +15,24 @@ func main() {
 	inWord := false
 	for i, char := range str {
 		if char == ' ' || char == '\t' {
-			if inWord && i != 0 && str[i-1] != ' ' && str[i-1] != '\t' {
+			if inWord && i != 0 && str[i-1] != ' ' && str[i-1] != '\t' && !isTrailingSpaces(str, i) {
 				z01.PrintRune(' ')
-
 			}
 		} else {
 			z01.PrintRune(char)
 			inWord = true
 		}
-
 	}
-	z01.PrintRune('\n')
 
+	z01.PrintRune('$')
+	z01.PrintRune('\n')
+}
+
+func isTrailingSpaces(str string, index int) bool {
+	for i := index; i < len(str); i++ {
+		if str[i] != ' ' && str[i] != '\t' {
+			return false
+		}
+	}
+	return true
 }
